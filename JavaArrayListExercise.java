@@ -26,6 +26,11 @@ class Ideone {
     boolean areEqual = colors.equals(sortedColors);
     int size = colors.size();
     colors.clear();
+    if (colors.isEmpty()) {
+    System.out.println("Список colors пустой");
+} else {
+    System.out.println("Список colors не пустой");
+}
     size = colors.size();
     System.out.println(size);
     colors.ensureCapacity(50);
