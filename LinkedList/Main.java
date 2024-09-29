@@ -1,57 +1,41 @@
+package LinkedList;
+
 public class Main {
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        // Example 1: list1 = [1, 2, 4], list2 = [1, 3, 4]
-        ListNode list1Ex1 = createList(new int[]{1, 2, 4});
-        ListNode list2Ex1 = createList(new int[]{1, 3, 4});
-        ListNode resultEx1 = solution.mergeTwoLists(list1Ex1, list2Ex1);
-        System.out.print("Example 1: ");
-        printList(resultEx1);  // Expected Output: [1, 1, 2, 3, 4, 4]
+        // Example 1
+        LinkedList.ListNode list1_1 = new ListNode(1, new ListNode(2, new ListNode(4)));
+        LinkedList.ListNode list2_1 = new ListNode(1, new ListNode(3, new ListNode(4)));
+        LinkedList.ListNode merged1 = solution.mergeTwoLists(list1_1, list2_1);
+        printList(merged1); // Ожидаемый вывод: 1 -> 1 -> 2 -> 3 -> 4 -> 4
 
-        // Example 2: list1 = [], list2 = []
-        ListNode list1Ex2 = createList(new int[]{});
-        ListNode list2Ex2 = createList(new int[]{});
-        ListNode resultEx2 = solution.mergeTwoLists(list1Ex2, list2Ex2);
-        System.out.print("Example 2: ");
-        printList(resultEx2);  // Expected Output: []
+        // Example 2
+        ListNode list1_2 = null;
+        ListNode list2_2 = null;
+        ListNode merged2 = solution.mergeTwoLists(list1_2, list2_2);
+        printList(merged2); // Ожидаемый вывод: пустой список
 
-        // Example 3: list1 = [], list2 = [0]
-        ListNode list1Ex3 = createList(new int[]{});
-        ListNode list2Ex3 = createList(new int[]{0});
-        ListNode resultEx3 = solution.mergeTwoLists(list1Ex3, list2Ex3);
-        System.out.print("Example 3: ");
-        printList(resultEx3);  // Expected Output: [0]
+        // Example 3
+        ListNode list1_3 = null;
+        ListNode list2_3 = new ListNode(0);
+        ListNode merged3 = solution.mergeTwoLists(list1_3, list2_3);
+        printList(merged3); // Ожидаемый вывод: 0
     }
 
-    // Метод для создания связного списка из массива
-    private static ListNode createList(int[] values) {
-        if (values.length == 0) {
-            return null;
-        }
-        ListNode head = new ListNode(values[0]);
-        ListNode current = head;
-        for (int i = 1; i < values.length; i++) {
-            current.next = new ListNode(values[i]);
-            current = current.next;
-        }
-        return head;
-    }
-
-    // Метод для печати связного списка
-    private static void printList(ListNode node) {
-        if (node == null) {
-            System.out.println("[]");
+    // Метод для вывода связного списка
+    public static void printList(ListNode head) {
+        if (head == null) {
+            System.out.println("Список пустой");
             return;
         }
-        System.out.print("[");
-        while (node != null) {
-            System.out.print(node.val);
-            node = node.next;
-            if (node != null) {
-                System.out.print(", ");
+        while (head != null) {
+            System.out.print(head.val);
+            if (head.next != null) {
+                System.out.print(" -> ");
             }
+            head = head.next;
         }
-        System.out.println("]");
+        System.out.println();
     }
 }
