@@ -2,8 +2,8 @@ package LinkedList;
 
 
 public class ListNode {
-    int val;
-    ListNode next;
+    final int val;
+    final ListNode next;
     ListNode() {}
     ListNode(int val) {
         this.val = val;
