@@ -21,7 +21,7 @@ public class Main {
         invent.removeProduct(102, 1); // Удаляем 1 Jeans
 
         // Отображаем все продукты после удаления
-        System.out.println("\nОбновленные продукты в инвентаре:");
+        System.out.println("\nОбновленные продукты в инвентаре :");
         invent.displayAllProducts();
 
         // Пытаемся удалить больше, чем доступно
