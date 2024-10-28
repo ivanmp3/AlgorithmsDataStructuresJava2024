@@ -1,7 +1,7 @@
 public class InputHandler {
     public static void inputHandler() {
         GetInput getInput = new GetInput();
-        int targetNumber = GetRand.genRand();  // Случайное число от 1000 до 9999
+        int targetNumber = TargetNum.targetNum(ChouseInput.chouseInput());  // Даем вібрать input
         int attempts = 0;
         boolean guessed = false;
 
