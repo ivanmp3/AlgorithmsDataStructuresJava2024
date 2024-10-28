@@ -1,6 +1,6 @@
 public class InputHandler {
     public static void inputHandler() {
-        Input input = new Input();
+        GetInput getInput = new GetInput();
         int targetNumber = GetRand.genRand();  // Случайное число от 1000 до 9999
         int attempts = 0;
         boolean guessed = false;
@@ -9,7 +9,7 @@ public class InputHandler {
 
         // Цикл продолжается до тех пор, пока не будет угадано число
         while (!guessed) {
-            int guess = input.getInput();  // Используем getInput() для ввода
+            int guess = GetInput.getInput(4);  // Используем getInput() для ввода
             attempts++;
 
             if (guess == targetNumber) {
@@ -22,6 +22,6 @@ public class InputHandler {
             }
         }
 
-        input.closeScanner();  // Закрываем сканер через объект Input
+        getInput.closeScanner();  // Закрываем сканер через объект Input
     }
 }
