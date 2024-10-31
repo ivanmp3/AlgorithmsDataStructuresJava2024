@@ -1,6 +1,10 @@
+import number.TargetNumRandom;
+import util.InputHandler;
+
 public class Main {
     public static void main(String[] args) {
-        InputHandler.inputHandler();
+        TargetNumRandom targetNum = new TargetNumRandom();
+        InputHandler.inputHandler(targetNum);
     }
 }
 

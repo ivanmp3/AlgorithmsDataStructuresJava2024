@@ -1,3 +1,5 @@
+import util.GetInput;
+
 public class ChouseInput {
     public static int chouseInput() {
         System.out.print("Выберите, как загадать число:\n" +

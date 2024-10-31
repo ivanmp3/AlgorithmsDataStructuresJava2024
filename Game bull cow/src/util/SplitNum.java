@@ -1,3 +1,5 @@
+package util;
+
 public class SplitNum {
     public static int[] spliNum(int num) {
         String numberStr = Integer.toString(num);
