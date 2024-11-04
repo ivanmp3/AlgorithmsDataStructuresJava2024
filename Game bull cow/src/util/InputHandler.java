@@ -1,13 +1,11 @@
 package util;
 
-import gamelogic.CheckBC;
 import gamelogic.GameLogic;
-import number.TargetNum;
+import TargetNumMethods.DataSource;
 
 public class InputHandler {
-    public static void inputHandler(TargetNum targetNum) {
-        GetInput getInput = new GetInput();
-        int targetNumber = targetNum.targetInput();//TargetNum.targetNum(ChouseInput.chouseInput());  // Даем вібрать input
+    public static void inputHandler(GetInput getInput, DataSource target, GameLogic gameLogic) {
+        int targetNumber = target.getInput();
         int attempts = 0;
         boolean guessed = false;
 
@@ -22,7 +20,6 @@ public class InputHandler {
                 System.out.println("Поздравляю! Вы угадали число " + targetNumber + " за " + attempts + " попыток.");
                 guessed = true;
             } else {
-                GameLogic gameLogic = new CheckBC();
                 int[] result = gameLogic.checkBC(guess, targetNumber);
                 System.out.println("Быки: " + result[0] + " Коровы: " + result[1]);
                 System.out.println("Попробуйте снова!");
@@ -32,3 +29,4 @@ public class InputHandler {
         getInput.closeScanner();  // Закрываем сканер через объект Input
     }
 }
+
