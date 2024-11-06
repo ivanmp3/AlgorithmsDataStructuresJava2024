@@ -1,19 +1,20 @@
-package util;
+package InputProcessingMethods;
 
-import gamelogic.GameLogic;
 import TargetNumMethods.DataSource;
+import gamelogic.GameLogic;
+import util.GetInput;
 
-public class InputHandler {
-    public static void inputHandler(GetInput getInput, DataSource target, GameLogic gameLogic) {
+public class HumanInput implements InputMethods {
+    @Override
+    public void processInput(GetInput getInput, DataSource target, GameLogic gameLogic) {
         int targetNumber = target.getInput();
         int attempts = 0;
         boolean guessed = false;
 
         System.out.println("Угадайте 4-значное число!");
 
-        // Цикл продолжается до тех пор, пока не будет угадано число
         while (!guessed) {
-            int guess = GetInput.getInput(4);  // Используем getInput() для ввода
+            int guess = getInput.getInput(4);  // Получаем пользовательский ввод через getInput
             attempts++;
 
             if (guess == targetNumber) {
@@ -26,7 +27,6 @@ public class InputHandler {
             }
         }
 
-        getInput.closeScanner();  // Закрываем сканер через объект Input
+        getInput.closeScanner();  // Закрываем сканер после завершения игры
     }
 }
-
